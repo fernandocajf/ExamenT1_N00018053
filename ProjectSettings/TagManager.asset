@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Zombie
   - Kunai
+  - Ninja
   layers:
   - Default
   - TransparentFX

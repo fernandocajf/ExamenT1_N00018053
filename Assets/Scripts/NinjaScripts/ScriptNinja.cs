@@ -39,6 +39,11 @@ public class ScriptNinja : MonoBehaviour
         if( muertoNinja != true) { 
             rigidbodyNinja.velocity = new Vector2(0, rigidbodyNinja.velocity.y);
             animatorNinja.SetInteger("Estado", animatorNinjaQuieto);
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                animatorNinja.SetInteger("Estado", animatorNinjaAtack);
+                disparar(_firePoint);
+            }
         }
         if (Input.GetKey(KeyCode.RightArrow) && muertoNinja != true)
         {

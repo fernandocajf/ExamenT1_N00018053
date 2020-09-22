@@ -9,6 +9,8 @@ public class Kunai : MonoBehaviour
 
     public float tiempodeVida = 1;
 
+    private bool impactar = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,17 @@ public class Kunai : MonoBehaviour
         Vector2 movimiento = direccion.normalized * velocidad * Time.deltaTime;
 
         transform.Translate(movimiento);
+        if (impactar)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Zombie"))
+        {
+            impactar = true;
+        }
     }
 }
