@@ -36,10 +36,10 @@ public class ScriptNinja : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        rigidbodyNinja.velocity = new Vector2(0, rigidbodyNinja.velocity.y);
-        animatorNinja.SetInteger("Estado", animatorNinjaQuieto);
-
+        if( muertoNinja != true) { 
+            rigidbodyNinja.velocity = new Vector2(0, rigidbodyNinja.velocity.y);
+            animatorNinja.SetInteger("Estado", animatorNinjaQuieto);
+        }
         if (Input.GetKey(KeyCode.RightArrow) && muertoNinja != true)
         {
             spriteNinja.flipX = false;

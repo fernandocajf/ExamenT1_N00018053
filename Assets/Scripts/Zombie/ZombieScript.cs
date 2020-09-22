@@ -33,6 +33,7 @@ public class ZombieScript : MonoBehaviour
         {
             animatorZombie.SetInteger("Estado", animatorZombieAtacar);
             rigidbodyZombie.velocity = new Vector2(0, rigidbodyZombie.velocity.y);
+            Destroy(gameObject, tiempodeVida);
         }
         else
         {
@@ -42,7 +43,7 @@ public class ZombieScript : MonoBehaviour
             if (chocarKunai)
             {
                 animatorZombie.SetInteger("Estado", animatorZombieMorir);
-                Destroy(gameObject, tiempodeVida);
+                Destroy(this.gameObject, tiempodeVida);
             }
         }
     }
@@ -50,7 +51,7 @@ public class ZombieScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.tag.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Ninja"))
         {
             zombieAtacar = true;
         }
